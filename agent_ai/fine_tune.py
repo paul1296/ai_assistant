@@ -1,19 +1,22 @@
 import docx
 import json
 import os
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
+import time
 
 # Load environment variables from .env file
 load_dotenv()
+# models = openai.Model.list()
+# print(models)
 
-api_key=os.getenv("API_KEY")
-
-client = OpenAI(api_key=api_key)
+# Set API key for OpenAI client
+api_key = os.getenv("API_KEY")
+openai.api_key = api_key
 
 doc_file_path = "database/fine_tune.docx"
 
-# Function to read the DOC file
+# Function to read the DOCX file
 def read_doc_file(doc_file_path):
     doc = docx.Document(doc_file_path)
     doc_content = []
@@ -21,7 +24,7 @@ def read_doc_file(doc_file_path):
         doc_content.append(paragraph.text)
     return "\n".join(doc_content)
 
-# Read the content of both files
+# Read the content of the DOCX file
 doc_file_content = read_doc_file(doc_file_path)
 
 def create_finetune_dataset(doc_content):
@@ -32,15 +35,16 @@ def create_finetune_dataset(doc_content):
     response = []
 
     for line in lines:
-        line = line.strip()  # Remove extra spaces
+        line = line.strip()
 
         if line.endswith("?"):  # This identifies a question
-            if question and response:  # If we already have a pair, add it to the dataset
+            if question and response:
                 dataset.append({
-                    "prompt": f"User Query: {question}",
-                    "completion": " ".join(response).strip()
+                    "messages": [
+                        {"role": "user", "content": question},
+                        {"role": "assistant", "content": " ".join(response).strip()}
+                    ]
                 })
-            # Reset for new question and response
             question = line
             response = []
         elif line:  # If it's a part of the response
@@ -49,8 +53,10 @@ def create_finetune_dataset(doc_content):
     # Add the last question-response pair
     if question and response:
         dataset.append({
-            "prompt": f"User Query: {question}",
-            "completion": " ".join(response).strip()
+            "messages": [
+                {"role": "user", "content": question},
+                {"role": "assistant", "content": " ".join(response).strip()}
+            ]
         })
 
     return dataset
@@ -64,30 +70,30 @@ with open('finetune_data.jsonl', 'w') as jsonl_file:
     for entry in finetune_dataset:
         jsonl_file.write(json.dumps(entry) + '\n')
 
-# Upload the dataset
-response = client.files.create(file=open('finetune_data.jsonl', 'rb'),
-purpose='fine-tune')
-
+# Upload the dataset file
+response = openai.File.create(file=open('finetune_data.jsonl', 'rb'), purpose='fine-tune')
 file_id = response.id
 
-fine_tune_response = openai.FineTune.create(
-  training_file=fileid,  # Replace this with the file ID you got from the previous step
-  model="davinci",  # You can replace this with other models like 'curie', 'babbage', etc.
+# Start fine-tuning the model using the new fine-tuning method
+fine_tune_response = openai.FineTuningJob.create(
+    training_file=file_id,  # Use the file ID obtained from the upload step
+    model="gpt-4o-mini-2024-07-18"   
 )
 
-fine_tune_id = fine_tune_response.id  # Get the fine-tuning job ID
+fine_tune_id = fine_tune_response['id']  # Get the fine-tuning job ID
 
 # Function to check the fine-tuning status with exponential backoff
-def check_fine_tune_status(fine_tune_id=fine_tune_id, max_retries=5):
+def check_fine_tune_status(fine_tune_id=fine_tune_id, max_retries=12):
     retries = 0
     wait_time = 1  # Initial wait time in seconds
 
     while retries < max_retries:
         try:
-            status = client.fine_tunes.retrieve(fine_tune_id)
-            print("Fine-tuning status:", status.status)
+            status = openai.FineTuningJob.retrieve(fine_tune_id)
+            print("Fine-tuning status:", status['status'])
 
-            if status.status in ['succeeded', 'failed']:
+            if status['status'] in ['succeeded', 'failed']:
+                print(status)
                 return True  # Exit the loop if the job is complete or failed
 
             # Wait for a bit before the next check
@@ -103,4 +109,3 @@ def check_fine_tune_status(fine_tune_id=fine_tune_id, max_retries=5):
 
     print("Max retries exceeded. Unable to retrieve the status.")
     return False
-
