@@ -1,10 +1,10 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 import os
-from gpt import generate_response
-from fine_tune import check_fine_tune_status
+from agent_ai.gpt import generate_response
+from agent_ai.fine_tune import check_fine_tune_status
 from twilio.twiml.messaging_response import MessagingResponse
-from schemas import schemas
+from agent_ai.schemas import schemas
 # Initialize FastAPI app
 app = FastAPI()
 

@@ -10,7 +10,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 openai.api_key = api_key  # Set the API key directly in openai module
 
-txt_file_path = "database/knowledge_base.txt"
+txt_file_path = "agent_ai/database/knowledge_base.txt"
 
 # Function to read the text file
 def read_txt_file(txt_file_path):

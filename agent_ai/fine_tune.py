@@ -14,7 +14,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 openai.api_key = api_key
 
-doc_file_path = "database/fine_tune.docx"
+doc_file_path = "agent_ai/database/fine_tune.docx"
 
 # Function to read the DOCX file
 def read_doc_file(doc_file_path):
@@ -71,7 +71,7 @@ with open('finetune_data.jsonl', 'w') as jsonl_file:
         jsonl_file.write(json.dumps(entry) + '\n')
 
 # Upload the dataset file
-response = openai.File.create(file=open('finetune_data.jsonl', 'rb'), purpose='fine-tune')
+response = openai.File.create(file=open('agent_ai/finetune_data.jsonl', 'rb'), purpose='fine-tune')
 file_id = response.id
 
 # Start fine-tuning the model using the new fine-tuning method

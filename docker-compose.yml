@@ -1,0 +1,14 @@
+version: '3.8'  # Specify the version of Docker Compose
+
+services:
+  fastapi:
+    build:
+      context: .  # Path to the Dockerfile
+      dockerfile: Dockerfile  # Name of the Dockerfile (optional if named Dockerfile)
+    ports:
+      - "8000:8000"  # Map host port 8000 to container port 8000
+    volumes:
+      - ./agent_ai:/app/agent_ai  # Mount the application code
+    environment:
+      - API_KEY=${API_KEY}  # Pass environment variables if needed
+    command: poetry run uvicorn agent_ai.main:app --host 0.0.0.0 --port 8000 --reload
