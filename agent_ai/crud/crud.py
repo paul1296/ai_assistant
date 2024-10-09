@@ -16,7 +16,7 @@ def get_reply(db:Session, reply_id: str):
     return db.query(models.Reply).filter(models.Reply.internal_id == reply_id).first()
 
 def create_user(db:Session, whatsapp: str):
-    db_user = models.User(internal_id=uuid.uuid5(NAMESPACE,whatsapp), whatsapp=whatsapp)
+    db_user = models.User(internal_id=uuid.uuid5(NAMESPACE, whatsapp), whatsapp=whatsapp)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)

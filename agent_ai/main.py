@@ -1,11 +1,10 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import Response
+from fastapi.responses import Response, JSONResponse
 import os
 from agent_ai.gpt import generate_response
 # from agent_ai.fine_tune import check_fine_tune_status
 from twilio.twiml.messaging_response import MessagingResponse
 from agent_ai.schemas import schemas
-from agent_ai.database import response_data
 # Initialize FastAPI app
 app = FastAPI()
 
@@ -22,12 +21,8 @@ async def whatsapp_response(request: Request):
     content = generate_response(incoming_msg)
     print(content)
 
-    # Create a Twilio response
-    twilio_response = MessagingResponse()
-    twilio_response.message(content)
-
     # Return the response as XML
-    return Response(content=str(twilio_response), media_type="application/xml")
+    return Response(content=str(content), media_type="application/xml")
 
 """
 
