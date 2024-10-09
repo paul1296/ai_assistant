@@ -17,4 +17,4 @@
 --- In your Twilio Console, go to the WhatsApp Sandbox settings and set the webhook URL to your server’s endpoint https://a013a3e1dfa69bde357b38ad587fc630.serveo.net
 /whatsapp_response 
 
---- Open Chat in whatsapp with your twilio phone number. Conenct your whatsapp account to twilio sandbox using "join <sandbox name>". And send messages
+--- Open Chat in whatsapp with your twilio phone number. Connect your whatsapp account to twilio sandbox using "join <sandbox name>". And send messages
