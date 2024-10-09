@@ -13,12 +13,12 @@ app = FastAPI()
 async def whatsapp_response(request: Request):
     print(request)
     form_data = await request.form()
-    #sender = form_data.get('From')
+    sender = form_data.get('From')
     message = form_data.get('Body')
     incoming_msg = message.strip() if message else ''
     print(incoming_msg)
     # Generate prompt response
-    content = generate_response(incoming_msg)
+    content = generate_response(incoming_msg, sender)
     print(content)
 
     # Return the response as XML

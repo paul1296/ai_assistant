@@ -2,6 +2,11 @@ from twilio.twiml.messaging_response import MessagingResponse
 import openai
 from dotenv import load_dotenv
 import os
+from . import history
+from agent_ai.crud.crud import *
+from agent_ai.models.database import *
+
+db = get_db()
 
 # Load environment variables from .env file
 load_dotenv()
@@ -19,13 +24,18 @@ def read_txt_file(txt_file_path):
 
 knowledge_base_content = read_txt_file(txt_file_path)
 
-def generate_response(user_message: str) -> str:
+def generate_response(user_message: str, sender) -> str:
     # Create the prompt messages for the chat model
-    messages = [
-        {"role": "system", "content": knowledge_base_content},  # Use your knowledge base content as a system message
-        {"role": "user", "content": user_message}  # The user's message
-    ]
-
+    messages = [ {"role": "system", "content": knowledge_base_content} ]  # Use your knowledge base content as a system message    
+    user_id = uuid.uuid5(NAMESPACE, sender)
+    user = get_user(db=db, user_id=user_id)
+    # If user does not exist generate
+    if user is None:
+        user = create_user(uwhatsapp=sender)
+    
+    context = history.generate_conversation_history(sender=sender)
+    messages.append(context)
+    messages.append({"role": "user", "content": user_message})  # The user's message
     response = openai.ChatCompletion.create(
         model="gpt-4o-mini-2024-07-18",  # Change as required
         messages=messages,
@@ -35,6 +45,8 @@ def generate_response(user_message: str) -> str:
 
     # Extract the assistant's response from the API response
     ai_response = response['choices'][0]['message']['content'].strip()
+    new_message = create_message(db=db, internal_user_id=user.internal_id, text=user_message)
+    create_reply(db=db, internal_user_id=user.internal_id, internal_message_id=new_message.internal_id, text= ai_response)
 
     # Create a Twilio response object
     twilio_response = MessagingResponse()
