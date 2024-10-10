@@ -1,181 +1,30 @@
-{
-    "messages": [
-      {"role": "user", "content": "How does SRS Solar work?"}, 
-      {"role": "assistant", "content": "We have partnered with several financing houses and apply to them on your behalf to ensure you get the best deal on a financing solution for your solar system."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How long does the finance application take?"}, 
-      {"role": "assistant", "content": "The application process typically takes 2-3 weeks to complete."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What could prevent my application from being approved?"}, 
-      {"role": "assistant", "content": "Your application may be declined if you do not meet our credit requirements."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "My application was declined, can my partner/spouse apply?"}, 
-      {"role": "assistant", "content": "Yes, your partner/spouse can apply separately if they meet the credit requirements."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "I live in an estate, how do I get solar?"}, 
-      {"role": "assistant", "content": "You may have to obtain permission from your estate for a solar installation. We’re happy to help, where possible."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Can I apply if I am a pensioner?"}, 
-      {"role": "assistant", "content": "Yes, if you meet our credit requirements this won’t be a problem."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How do I Get My Solar?"}, 
-      {"role": "assistant", "content": "You can complete our solar finance form. Or simply contact us via WhatsApp, call or email and we will assist you."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Who is responsible for the insurance of the solar system?"}, 
-      {"role": "assistant", "content": "You as the customer are responsible for insuring your solar system."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Can I cancel my finance agreement before the term is up?"}, 
-      {"role": "assistant", "content": "You can cancel at any time; however, T’s & C’s will apply."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Who will install my solar solution?"}, 
-      {"role": "assistant", "content": "We have partnered with a network of certified, professional installers to handle the installation of your system. All installations receive a Certificate of Compliance (CoC) upon completion."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What happens during the installation?"}, 
-      {"role": "assistant", "content": "The solar panels, inverter and batteries will be mounted. Connections will be made to the inverter and the electrical grid. The system will then be tested to ensure it is working correctly."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How long will the installation take?"}, 
-      {"role": "assistant", "content": "Installations typically take 1-2 days to complete. But may vary depending on the size and complexity of the installation."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Would my system be cheaper if I did this myself?"}, 
-      {"role": "assistant", "content": "We work closely with product suppliers, installers and finance houses which allows us to supply solar systems to you at market related prices or lower. We take the headache out of doing this on your own."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Will my solar system installation be certified?"}, 
-      {"role": "assistant", "content": "All our solar installers are accredited and will, within 7 days of your installation, issue and submit a Certificate of Compliance (CoC) which will be sent through to you."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What is included in the solar package?"}, 
-      {"role": "assistant", "content": "All solutions include hardware, installation and a COC."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What components will my solution typically consist of?"}, 
-      {"role": "assistant", "content": "Your solar system will typically consist of solar panels, an inverter, mounting system, battery and the necessary cabling."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How long will the system last?"}, 
-      {"role": "assistant", "content": "Solar panels have a lifetime of up to 25 years. Batteries and inverters have warranties between 5-10 years depending on the manufacturer."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How many solar panels are required for a 5kW solar system?"}, 
-      {"role": "assistant", "content": "The number of panels required for a 5kW solar system depends on the wattage of the panels, but typically around 10-15 panels."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How many kW’s (kilowatts) does it take to run a house?"}, 
-      {"role": "assistant", "content": "It varies depending on the size of the house and the appliances being used."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What appliances can a 5kW solar system power?"}, 
-      {"role": "assistant", "content": "A 5kW solar system can power several appliances, such as lights, TVs, refrigerators, and small electronics."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Can I run my entire house on solar power?"}, 
-      {"role": "assistant", "content": "Yes, it’s possible to run your entire house on solar power, but it depends on your energy consumption and the size of your solar system."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What are the different types of solar panels?"}, 
-      {"role": "assistant", "content": "While every solar panel brand and product has unique specifications, we only use Tier 1 panels from reputable brands."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How do I find out how much I pay for electricity?"}, 
-      {"role": "assistant", "content": "Examining your electricity bill is the simplest approach to learn how much you spend for electricity (and how much electricity you consume each month). Gathering a year’s worth of electricity bills allows you to establish an average while accounting for all four seasons of the year."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "How does solar impact my property value?"}, 
-      {"role": "assistant", "content": "Installing a solar energy system in your home can have a positive impact on your property value. Studies have shown that homes with solar systems sell for more than those without and can increase your home’s value more than other renovations of the same value."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Who is responsible for the maintenance and monitoring of the solar system?"}, 
-      {"role": "assistant", "content": "You are responsible for the maintenance and monitoring of the solar system."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "I am not sure what to buy, can you assist me?"}, 
-      {"role": "assistant", "content": "We would be happy to assist! You can complete our solar finance form. Or simply contact us via WhatsApp, call or email."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What if I want to Upgrade or Expand my System?"}, 
-      {"role": "assistant", "content": "Contact us via WhatsApp, call or email and we will assist you."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What is net metering?"}, 
-      {"role": "assistant", "content": "Net metering is a billing system that allows homeowners with solar panels to get credit for excess energy they generate and send back to the grid. It helps make solar energy more affordable and accessible. Net metering policies are currently being rolled out in SA."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "Are solar installations legal?"}, 
-      {"role": "assistant", "content": "Yes! Our qualified installers follow strict regulations and will issue a COC (Certificate of Compliance) on completion of your installation."}
-    ]
-  },
-  {
-    "messages": [
-      {"role": "user", "content": "What is SSEG?"}, 
-      {"role": "assistant", "content": "SSEG refers to Small Scale Embedded Generation. A solar system used primarily for your own consumption, with excess energy being pushed back into the grid. It requires a bi-directional meter."}
-    ]
-  }
-  
+{"messages":[{"role":"user","content":"How does SRS Solar work?"},{"role":"assistant","content":"We have partnered with several financing houses and apply to them on your behalf to ensure you get the best deal on a financing solution for your solar system."}]}
+{"messages":[{"role":"user","content":"How long does the finance application take?"},{"role":"assistant","content":"The application process typically takes 2-3 weeks to complete."}]}
+{"messages":[{"role":"user","content":"What could prevent my application from being approved?"},{"role":"assistant","content":"Your application may be declined if you do not meet our credit requirements."}]}
+{"messages":[{"role":"user","content":"My application was declined, can my partner/spouse apply?"},{"role":"assistant","content":"Yes, your partner/spouse can apply separately if they meet the credit requirements."}]}
+{"messages":[{"role":"user","content":"I live in an estate, how do I get solar?"},{"role":"assistant","content":"You may have to obtain permission from your estate for a solar installation. We’re happy to help, where possible."}]}
+{"messages":[{"role":"user","content":"Can I apply if I am a pensioner?"},{"role":"assistant","content":"Yes, if you meet our credit requirements this won’t be a problem."}]}
+{"messages":[{"role":"user","content":"How do I Get My Solar?"},{"role":"assistant","content":"You can complete our solar finance form. Or simply contact us via WhatsApp, call or email and we will assist you."}]}
+{"messages":[{"role":"user","content":"Who is responsible for the insurance of the solar system?"},{"role":"assistant","content":"You as the customer are responsible for insuring your solar system."}]}
+{"messages":[{"role":"user","content":"Can I cancel my finance agreement before the term is up?"},{"role":"assistant","content":"You can cancel at any time; however, T’s & C’s will apply."}]}
+{"messages":[{"role":"user","content":"Who will install my solar solution?"},{"role":"assistant","content":"We have partnered with a network of certified, professional installers to handle the installation of your system. All installations receive a Certificate of Compliance (CoC) upon completion."}]}
+{"messages":[{"role":"user","content":"What happens during the installation?"},{"role":"assistant","content":"The solar panels, inverter and batteries will be mounted. Connections will be made to the inverter and the electrical grid. The system will then be tested to ensure it is working correctly."}]}
+{"messages":[{"role":"user","content":"How long will the installation take?"},{"role":"assistant","content":"Installations typically take 1-2 days to complete. But may vary depending on the size and complexity of the installation."}]}
+{"messages":[{"role":"user","content":"Would my system be cheaper if I did this myself?"},{"role":"assistant","content":"We work closely with product suppliers, installers and finance houses which allows us to supply solar systems to you at market related prices or lower. We take the headache out of doing this on your own."}]}
+{"messages":[{"role":"user","content":"Will my solar system installation be certified?"},{"role":"assistant","content":"All our solar installers are accredited and will, within 7 days of your installation, issue and submit a Certificate of Compliance (CoC) which will be sent through to you."}]}
+{"messages":[{"role":"user","content":"What is included in the solar package?"},{"role":"assistant","content":"All solutions include hardware, installation and a COC."}]}
+{"messages":[{"role":"user","content":"What components will my solution typically consist of?"},{"role":"assistant","content":"Your solar system will typically consist of solar panels, an inverter, mounting system, battery and the necessary cabling."}]}
+{"messages":[{"role":"user","content":"How long will the system last?"},{"role":"assistant","content":"Solar panels have a lifetime of up to 25 years. Batteries and inverters have warranties between 5-10 years depending on the manufacturer."}]}
+{"messages":[{"role":"user","content":"How many solar panels are required for a 5kW solar system?"},{"role":"assistant","content":"The number of panels required for a 5kW solar system depends on the wattage of the panels, but typically around 10-15 panels."}]}
+{"messages":[{"role":"user","content":"How many kW’s (kilowatts) does it take to run a house?"},{"role":"assistant","content":"It varies depending on the size of the house and the appliances being used."}]}
+{"messages":[{"role":"user","content":"What appliances can a 5kW solar system power?"},{"role":"assistant","content":"A 5kW solar system can power several appliances, such as lights, TVs, refrigerators, and small electronics."}]}
+{"messages":[{"role":"user","content":"Can I run my entire house on solar power?"},{"role":"assistant","content":"Yes, it’s possible to run your entire house on solar power, but it depends on your energy consumption and the size of your solar system."}]}
+{"messages":[{"role":"user","content":"What are the different types of solar panels?"},{"role":"assistant","content":"While every solar panel brand and product has unique specifications, we only use Tier 1 panels from reputable brands."}]}
+{"messages":[{"role":"user","content":"How do I find out how much I pay for electricity?"},{"role":"assistant","content":"Examining your electricity bill is the simplest approach to learn how much you spend for electricity (and how much electricity you consume each month). Gathering a year’s worth of electricity bills allows you to establish an average while accounting for all four seasons of the year."}]}
+{"messages":[{"role":"user","content":"How does solar impact my property value?"},{"role":"assistant","content":"Installing a solar energy system in your home can have a positive impact on your property value. Studies have shown that homes with solar systems sell for more than those without and can increase your home’s value more than other renovations of the same value."}]}
+{"messages":[{"role":"user","content":"Who is responsible for the maintenance and monitoring of the solar system?"},{"role":"assistant","content":"You are responsible for the maintenance and monitoring of the solar system."}]}
+{"messages":[{"role":"user","content":"I am not sure what to buy, can you assist me?"},{"role":"assistant","content":"We would be happy to assist! You can complete our solar finance form. Or simply contact us via WhatsApp, call or email."}]}
+{"messages":[{"role":"user","content":"What if I want to Upgrade or Expand my System?"},{"role":"assistant","content":"Contact us via WhatsApp, call or email and we will assist you."}]}
+{"messages":[{"role":"user","content":"What is net metering?"},{"role":"assistant","content":"Net metering is a billing system that allows homeowners with solar panels to get credit for excess energy they generate and send back to the grid. It helps make solar energy more affordable and accessible. Net metering policies are currently being rolled out in SA."}]}
+{"messages":[{"role":"user","content":"Are solar installations legal?"},{"role":"assistant","content":"Yes! Our qualified installers follow strict regulations and will issue a COC (Certificate of Compliance) on completion of your installation."}]}
+{"messages":[{"role":"user","content":"What is SSEG?"},{"role":"assistant","content":"SSEG refers to Small Scale Embedded Generation. A solar system used primarily for your own consumption, with excess energy being pushed back into the grid. It requires a bi-directional meter."}]}
