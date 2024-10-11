@@ -30,7 +30,7 @@ def create_message(db:Session, internal_user_id: str, text: str):
     return db_message
 
 def create_reply(db:Session,internal_user_id: str, internal_message_id:str, text: str):
-    db_reply = models.Message(internal_id=str(uuid.uuid4()), internal_user_id=internal_user_id, text=text)
+    db_reply = models.Reply(internal_id=str(uuid.uuid4()), internal_user_id=internal_user_id, internal_message_id=internal_message_id, text=text)
     db.add(db_reply)
     db.commit()
     db.refresh(db_reply)
@@ -61,14 +61,50 @@ def update_user(db: Session, user_id: str, whatsapp: str = None, active: bool = 
 def get_messages_for_today(db: Session, user_id: str):
     # Ensure the date is in UTC
     date = datetime.now(timezone.utc)
-
     # Calculate the start and end of the day in UTC
     start_of_day = datetime.combine(date, datetime.min.time(), tzinfo=timezone.utc)  # 00:00:00 UTC
     end_of_day = start_of_day + timedelta(days=1)  # 00:00:00 UTC of the next day
-
     # Query messages filtered by user_id and within the specified UTC date range
     return db.query(
         models.Message).filter(
-            models.Message.internal_user_id == user_id and models.Message.created_at >= start_of_day, models.Message.created_at < end_of_day
+            models.Message.internal_user_id == user_id # and models.Message.created_at >= start_of_day, models.Message.created_at < end_of_day
             ).order_by(
                 models.Message.created_at.asc()).all()
+
+def get_all_replies(db: Session):
+    return db.query(models.Reply).all()
+
+def delete_all_users(db: Session):
+    """
+    Deletes all users from the User table.
+    """
+    try:
+        db.query(models.User).delete()
+        db.commit()
+
+    except Exception as e:
+        db.rollback()
+
+def delete_all_messages(db: Session):
+    """
+    Deletes all messages from the Message table.
+    """
+    try:
+        db.query(models.Message).delete()
+        db.commit()
+        print("All messages deleted successfully.")
+    except Exception as e:
+        db.rollback()
+        print(f"Error deleting messages: {e}")
+
+def delete_all_replies(db: Session):
+    """
+    Deletes all replies from the Reply table.
+    """
+    try:
+        db.query(models.Reply).delete()
+        db.commit()
+        print("All replies deleted successfully.")
+    except Exception as e:
+        db.rollback()
+        print(f"Error deleting replies: {e}")

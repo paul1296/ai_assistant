@@ -1,65 +1,55 @@
 Setup Instructions
-1. Configure OpenAI API Key
 
-    Open the .env file in the root of your project.
-    Replace the placeholder value your_api_key with your actual OpenAI API key:
+Configure OpenAI API Key
 
-    makefile
+Open the .env file in the root of your project. Replace the placeholder value your_api_key with your actual OpenAI API key:
 
-    API_KEY=your_actual_openai_api_key
+makefile
 
-2. Build and Run the Container
+API_KEY=your_actual_openai_api_key
 
-    Navigate to the root of your project directory.
-    Run the following command to build and start the container:
+Build and Run the Container
 
-    css
+Navigate to the root of your project directory. Run the following command to build and start the container:
 
-    docker-compose up --build
+css
 
-3. Access the Application
+docker-compose up --build
 
-    Once the container is up and running, you can access the FastAPI application at:
-        Application: http://127.0.0.1:8000
-        Swagger UI (API documentation): http://127.0.0.1:8000/docs
+Access the Application
 
-4. Testing the Application
+Once the container is up and running, you can access the FastAPI application at: Application: http://127.0.0.1:8000 Swagger UI (API documentation): http://127.0.0.1:8000/docs
 
-    There are two API endpoints available for testing:
-        Twilio WhatsApp Response Endpoint: http://127.0.0.1:8000/whatsapp_response
-        Swagger Test Endpoint: http://127.0.0.1:8000/test
+Testing the Application
 
-    Tunneling for External Access:
-        You can expose your local server to the internet using Serveo with the following command:
+There are two API endpoints available for testing: Twilio WhatsApp Response Endpoint: http://127.0.0.1:8000/whatsapp_response Swagger Test Endpoint: http://127.0.0.1:8000/test
 
-        bash
+Tunneling for External Access: You can expose your local server to the internet using Serveo with the following command:
 
-    curl -X POST https://serveo.net -d 'localhost:8000'
+ bash
+curl -X POST https://serveo.net -d 'localhost:8000'
 
-    or
+or
 
-    ruby
+ruby
 
-            ssh -R 80:localhost:8000 serveo.net
+     ssh -R 80:localhost:8000 serveo.net
 
-            This will redirect HTTP traffic to a public URL (e.g., https://a013a3e1dfa69bde357b38ad587fc630.serveo.net).
+     This will redirect HTTP traffic to a public URL (e.g., https://a013a3e1dfa69bde357b38ad587fc630.serveo.net).
+Setting up Twilio WhatsApp Webhook
 
-5. Setting up Twilio WhatsApp Webhook
+In your Twilio Console, go to the WhatsApp Sandbox Settings. Set the webhook URL to your Serveo endpoint:
 
-    In your Twilio Console, go to the WhatsApp Sandbox Settings.
-    Set the webhook URL to your Serveo endpoint:
+bash
 
-    bash
+https://a013a3e1dfa69bde357b38ad587fc630.serveo.net/whatsapp_response
 
-    https://a013a3e1dfa69bde357b38ad587fc630.serveo.net/whatsapp_response
+Testing via WhatsApp
 
-6. Testing via WhatsApp
+Open a chat with your Twilio phone number in WhatsApp. Join the sandbox by sending the message:
 
-    Open a chat with your Twilio phone number in WhatsApp.
-    Join the sandbox by sending the message:
+bash
 
-    bash
+join <sandbox_name>
 
-    join <sandbox_name>
-
-    Once connected, you can start sending messages to test the integration.
+Once connected, you can start sending messages to test the integration.

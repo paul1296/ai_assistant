@@ -6,8 +6,7 @@ import uuid
 # Define a namespace for generating UUIDs (can be any UUID)
 NAMESPACE = uuid.UUID('12345678-1234-5678-1234-567812345678')
 
-def generate_conversation_history(sender: str, db):
-    user_id = str(uuid.uuid5(NAMESPACE, sender))
+def generate_conversation_history(user_id: str, db):
     user = get_user(db=db, user_id=user_id)
     messages = get_messages_for_today(db=db, user_id=user.internal_id)
     context = []

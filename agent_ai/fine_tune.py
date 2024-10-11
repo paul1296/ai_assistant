@@ -7,24 +7,24 @@ import time
 
 # Load environment variables from .env file
 load_dotenv()
-# models = openai.Model.list()
-# print(models)
-
+"""
 # Set API key for OpenAI client
 api_key = os.getenv("API_KEY")
 openai.api_key = api_key
 
 # Upload the dataset file
-response = openai.File.create(file=open('agent_ai/finetune_data.jsonl', 'rb'), purpose='fine-tune')
+response = openai.File.create(file=open('agent_ai/fine_tune_data.jsonl', 'rb'), purpose='fine-tune')
 file_id = response.id
 
 # Start fine-tuning the model using the new fine-tuning method
+
 fine_tune_response = openai.FineTuningJob.create(
-    training_file=file_id,  # Use the file ID obtained from the upload step
-    model="gpt-4o-mini-2024-07-18"   
+    training_file=file_id,  # The file ID from the upload step containing training data
+    model="gpt-3.5-turbo"     # Updated model for fine-tuning (e.g., GPT-4 Turbo)
 )
 
 fine_tune_id = fine_tune_response['id']  # Get the fine-tuning job ID
+
 
 # Function to check the fine-tuning status with exponential backoff
 def check_fine_tune_status(fine_tune_id=fine_tune_id, max_retries=12):
@@ -34,10 +34,8 @@ def check_fine_tune_status(fine_tune_id=fine_tune_id, max_retries=12):
     while retries < max_retries:
         try:
             status = openai.FineTuningJob.retrieve(fine_tune_id)
-            print("Fine-tuning status:", status['status'])
 
             if status['status'] in ['succeeded', 'failed']:
-                print(status)
                 return True  # Exit the loop if the job is complete or failed
 
             # Wait for a bit before the next check
@@ -54,8 +52,6 @@ def check_fine_tune_status(fine_tune_id=fine_tune_id, max_retries=12):
     print("Max retries exceeded. Unable to retrieve the status.")
     return False
 
-
-"""
 
 doc_file_path = "agent_ai/database/fine_tune.docx"
 
