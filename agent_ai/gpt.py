@@ -30,7 +30,6 @@ def generate_response(user_message: str, sender: str, db: Session) -> str:
     fine_tune_data = load_jsonl(file_path="agent_ai/fine_tune_data.jsonl")
 
     for data in fine_tune_data:   
-        print(data)
         messages.extend(data["messages"])
 
     user_id = str(uuid.uuid5(NAMESPACE, sender))
